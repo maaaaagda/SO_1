@@ -14,9 +14,6 @@ public class Proces
     private int czasPozostaly;
     private int czasOczekiwania;
 
-    public Proces(Proces p) {
-
-    }
 
     public Proces(int numerProcesu, int momentWejscia, int dlugoscFazy, int czasPozostaly, int czasOczekiwania) {
         this.numerProcesu = numerProcesu;

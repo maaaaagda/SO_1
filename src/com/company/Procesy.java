@@ -1,56 +1,16 @@
 package com.company;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Random;
+
 
 /**
  * Created by Magdalena Polak on 29.02.2016.
  */
 public class Procesy {
-    ArrayList<Proces> procesy;
 
-    public Procesy(int liczba) {
-        procesy = new ArrayList<Proces>();
-   /*     procesy.add(new Proces(0, 0, 50, 50, 0));
-        procesy.add(new Proces(1, 0, 15, 15, 0));
-        procesy.add(new Proces(2, 16, 6, 6, 0));
-         procesy.add(new Proces(2, 60, 10, 10, 0));
-        procesy.add(new Proces(2, 61, 2, 2, 0));
-
-        procesy = new ArrayList<Proces>();
-        procesy.add(new Proces(0, 0, 10));
-        procesy.add(new Proces(1, 4, 5));
-        procesy.add(new Proces(2, 5, 2));
-      */  for(int i = 0; i<liczba; i++)
-        {
-            Random r = new Random();
-
-            int n = i;
-            int d =  r.nextInt(100);
-            int m = 1 + r.nextInt(100);
-            procesy.add(new Proces(n, d, m, m, 0));
-        }
-    }
-
-
-    public void wyswietl() {
-
-        for (Proces p : procesy)
-            System.out.print(p + "\n");
-
-    }
-
-    public void wyswietlS() {
-        Collections.sort(procesy, Proces.Comparators.ComparatorMomentWejscia);
-        for (Proces p : procesy)
-            System.out.print(p + " \n");
-    }
-
-
-    public double FCFS() {
+    public double FCFS(ArrayList<Proces> procesy)
+    {
         ArrayList<Proces> procesy1 = new ArrayList<Proces>(procesy.size());
      /*   for (Proces p : procesy) {
             procesy1.add(new Proces(p));
@@ -75,42 +35,8 @@ public class Procesy {
         return czasCalkowityOczekiwania / procesy.size();
     }
 
-    public double SJF() {
-        Collections.sort(procesy, Proces.Comparators.ComparatorMomentWejscia);
 
-        double czasCalkowityOczekiwania = 0;
-        int czasZakonczeniaCalkowity = (procesy.get(0)).getDlugoscFazy();
-        for (int i = 1; i < procesy.size(); i++) {
-             if (czasZakonczeniaCalkowity <= procesy.get(i).getMomentWejscia())
-                czasZakonczeniaCalkowity = procesy.get(i).getMomentWejscia() + (procesy.get(i)).getDlugoscFazy();
-
-            else if (czasZakonczeniaCalkowity > procesy.get(i).getMomentWejscia()) {
-                int a = i;
-                ArrayList<Proces> kolejka = new ArrayList<Proces>();
-                while (a < procesy.size() && czasZakonczeniaCalkowity > (procesy.get(a)).getMomentWejscia())
-
-                {
-                    kolejka.add(procesy.get(a));
-                    a++;
-                }
-
-
-                Collections.sort(kolejka, Proces.Comparators.ComparatorDlugoscFazy);
-                int d = i;
-                for (int p = 0; p < kolejka.size(); p++) {
-
-                    procesy.set(d, kolejka.get(p));
-                    d++;
-                }
-                czasCalkowityOczekiwania += (czasZakonczeniaCalkowity - procesy.get(i).getMomentWejscia());
-                czasZakonczeniaCalkowity += (procesy.get(i)).getDlugoscFazy();
-            }
-
-        }
-        return czasCalkowityOczekiwania / procesy.size();
-    }
-
-    public double SJF2() {
+    public double SJF(ArrayList<Proces> procesy) {
         int czasAktualny = 0;
         double calkowityCzasOczekiwania = 0;
         ArrayList<Proces> procesy2 = new ArrayList<Proces>();
@@ -155,7 +81,8 @@ public class Procesy {
 
     }
 
-    public double SRTF() {
+    public double SRTF(ArrayList<Proces> procesy)
+    {
         int czasAktualny = 0;
         double calkowityCzasOczekiwania = 0;
         int licznikWywlaszczen = 0;
@@ -198,19 +125,18 @@ public class Procesy {
             }
         }
         while (czasAktualny != 100000);
-        System.out.println("Ilosc wywlaszczen: " + licznikWywlaszczen / 2);
+       // System.out.println("Ilosc wywlaszczen: " + licznikWywlaszczen / 2);
         return calkowityCzasOczekiwania / pomocnicza.size();
     }
 
 
-    public double RR(int k) {
+    public double RR(int k, ArrayList<Proces> procesy)
+    {
         int kwant = 0;
         int czasAktualny = 0;
         double calkowityCzasOczekiwania = 0;
         ArrayList<Proces> procesy4 = new ArrayList<Proces>();
         ArrayList<Proces> kolejka = new ArrayList<Proces>();
-      //  ArrayList<Proces> pomocnicza = new ArrayList<Proces>();
-
         for (int i = 0; i < procesy.size(); i++) {
             procesy4.add(new Proces((procesy.get(i)).getNumerProcesu(),
                     (procesy.get(i)).getMomentWejscia(), (procesy.get(i)).getDlugoscFazy(), (procesy.get(i)).getDlugoscFazy(), 0));

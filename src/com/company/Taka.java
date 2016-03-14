@@ -1,10 +1,13 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
  * Created by Magdalena Polak on 02.03.2016.
  */
 public class Taka {
-    /*
+/*
 
     public double SRTF() {
         Collections.sort(procesy, Proces.Comparators.ComparatorMomentWejscia);
@@ -280,5 +283,96 @@ public class Taka {
         while (czasAktualny != 1000);
         return calkowityCzasOczekiwania / procesy4.size();
 
-    }*/
+    }
+     /*  Procesy pr = new Procesy(50);
+
+
+    }
+
+      //  System.out.println(" Nieposortowane");
+      //  pr.wyswietl();
+        System.out.println(" Posortowane wg cz wejscia");
+        pr.wyswietlS();
+        System.out.println("\nFCFS: " + pr.FCFS());
+        System.out.println("\nSJF: " + pr.SJF());
+        System.out.println("\nSJF2: " + pr.SJF2());
+        System.out.println("\nSRTF: " + pr.SRTF());
+        System.out.println("\nRR: " + pr.RR(100));
+
+
+    public Procesy() {
+        // procesy = new ArrayList<Proces>();
+   /*     procesy.add(new Proces(0, 0, 50, 50, 0));
+        procesy.add(new Proces(1, 0, 15, 15, 0));
+        procesy.add(new Proces(2, 16, 6, 6, 0));
+         procesy.add(new Proces(2, 60, 10, 10, 0));
+        procesy.add(new Proces(2, 61, 2, 2, 0));
+
+        procesy = new ArrayList<Proces>();
+        procesy.add(new Proces(0, 0, 10));
+        procesy.add(new Proces(1, 4, 5));
+        procesy.add(new Proces(2, 5, 2));
+        for(int i = 0; i<liczba; i++)
+        {
+            Random r = new Random();
+
+            int n = i;
+            int d =  r.nextInt(100);
+            int m = 1 + r.nextInt(100);
+            procesy.add(new Proces(n, d, m, m, 0));
+        }
+    }
+
+
+    public void wyswietl() {
+
+        for (Proces p : procesy)
+            System.out.print(p + "\n");
+
+    }
+
+    public void wyswietlS() {
+        Collections.sort(procesy, Proces.Comparators.ComparatorMomentWejscia);
+        for (Proces p : procesy)
+            System.out.print(p + " \n");
+    }
+
+      public double SJF2(ArrayList<Proces> procesy) {
+          Collections.sort(procesy, Proces.Comparators.ComparatorMomentWejscia);
+
+          double czasCalkowityOczekiwania = 0;
+          int czasZakonczeniaCalkowity = (procesy.get(0)).getDlugoscFazy();
+          for (int i = 1; i < procesy.size(); i++) {
+              if (czasZakonczeniaCalkowity <= procesy.get(i).getMomentWejscia())
+                  czasZakonczeniaCalkowity = procesy.get(i).getMomentWejscia() + (procesy.get(i)).getDlugoscFazy();
+
+              else if (czasZakonczeniaCalkowity > procesy.get(i).getMomentWejscia()) {
+                  int a = i;
+                  ArrayList<Proces> kolejka = new ArrayList<Proces>();
+                  while (a < procesy.size() && czasZakonczeniaCalkowity > (procesy.get(a)).getMomentWejscia())
+
+                  {
+                      kolejka.add(procesy.get(a));
+                      a++;
+                  }
+
+
+                  Collections.sort(kolejka, Proces.Comparators.ComparatorDlugoscFazy);
+                  int d = i;
+                  for (int p = 0; p < kolejka.size(); p++) {
+
+                      procesy.set(d, kolejka.get(p));
+                      d++;
+                  }
+                  czasCalkowityOczekiwania += (czasZakonczeniaCalkowity - procesy.get(i).getMomentWejscia());
+                  czasZakonczeniaCalkowity += (procesy.get(i)).getDlugoscFazy();
+              }
+
+          }
+          return czasCalkowityOczekiwania / procesy.size();
+      }
+
+
+}
+*/
 }

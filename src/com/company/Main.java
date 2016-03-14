@@ -1,22 +1,14 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Main {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
 
-        Procesy pr = new Procesy(50);
-      //  System.out.println(" Nieposortowane");
-      //  pr.wyswietl();
-        System.out.println(" Posortowane wg cz wejscia");
-        pr.wyswietlS();
-        System.out.println("\nFCFS: " + pr.FCFS());
-        System.out.println("\nSJF: " + pr.SJF());
-        System.out.println("\nSJF2: " + pr.SJF2());
-        System.out.println("\nSRTF: " + pr.SRTF());
-        System.out.println("\nRR: " + pr.RR(100));
+        Wyniki w = new Wyniki();
 
-
-
-    }
+        System.out.println(w.srednieWyniki(80, 20, 50));
+       }
 }
